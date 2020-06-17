@@ -1,0 +1,46 @@
+<mat-paginator [length]="length"
+              [pageSize]="pageIndex"
+              
+              [pageSizeOptions]="[5, 10, 25, 100]"
+               (page)="pageEvent = paginator($event)">
+</mat-paginator>
+
+<div class="publication-card" style="margin-top: 0.1%;" *ngFor="let ask of askToShow"  >
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ask.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Área: {{ask.specialization}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+    <mat-card class="mat-card-publication">
+        <mat-tab-group >
+            <mat-tab >
+                <ng-template mat-tab-label>
+                    <mat-icon class="example-tab-icon">contact_support</mat-icon>
+                    Pregunta
+                </ng-template>
+                <app-asks [index]="ask"></app-asks>
+                <div *ngIf="canComment">
+                  <input type="text"  id="Comentario" [(ngModel)]= "comentario" #ctrl="ngModel" >
+                  <button class="btn btn-light new" (click) = "click(ask._id)">
+                    Comentar<i class="fas fa-plus-circle fa-1x" style="color: blue"></i>
+                  </button>
+                </div>
+                
+            </mat-tab>
+            <mat-tab label="Comentarios">
+                <ng-template mat-tab-label>
+                    <mat-icon  class="example-tab-icon">question_answer</mat-icon>
+                    Comentarios
+                  </ng-template>
+                <app-comment-form [index]="ask"></app-comment-form>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+    </mat-expansion-panel>
+    </mat-accordion>
+</div>

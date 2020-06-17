@@ -1,0 +1,18 @@
+
+<div *ngFor="let comment of index.comments">
+<mat-form-field style="width: 100%; color: white;" appearance="outline" >
+    <div class= "row">
+      <mat-label style="color: black;"> <b>Comentario:</b>  {{comment.text}}</mat-label>
+    </div>
+    <div class= "row">
+      <mat-label style="color: black;">   <b>Profesional: </b>{{comment.doctorId}}</mat-label>
+    </div>
+    <input matInput disabled style="color: white; border-color: white;">
+  </mat-form-field>
+  <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+</div>
+
+
+ 

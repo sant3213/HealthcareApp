@@ -1,0 +1,29 @@
+
+
+.form-group{
+  box-sizing: border-box;
+  padding-right: 15%;
+  padding-left: 30%;
+  
+}
+
+.form-control{
+  width: 80%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.buttons{
+  box-sizing: border-box;
+}
+
+.mat-card-content>:first-child, .mat-card>:first-child{
+  transform : scale(1); 
+}
+
+.invalid-feedback{
+
+    display:relative;
+    top:-40px;
+
+}

@@ -1,0 +1,116 @@
+<div class="register-card">
+    <mat-card class="mat-card-register">
+        <form (ngSubmit)="register(userForm)" [formGroup]="userForm">
+            <div class="form-row">
+                <div class="form-group col-md-6 mb-3">
+                    <label for="inputName">Nombre completo</label>
+                    <input type="text" formControlName="userName" class="form-control" placeholder="Nombre"
+                        [ngClass]="{'is-invalid': (userForm.get('userName').touched || userForm.get('userName').dirty) && !userForm.get('userName').valid}">
+                    <span class="invalid-feedback">
+                        <span *ngIf="userForm.get('userName').errors?.required">
+                            Por favor ingrese su nombre
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <label for="inputPassword4">Correo electrónico</label>
+                    <input type="text" class="form-control" id="inputPassword4" formControlName="email"
+                        placeholder="Usuario"
+                        [ngClass]="{'is-invalid': (userForm.get('email').touched || userForm.get('email').dirty) && !userForm.get('email').valid}">
+                    <span class="invalid-feedback">
+                        <span *ngIf="userForm.get('email').errors?.required">
+                            Por favor ingrese un email.
+                        </span>
+                        <span *ngIf="userForm.get('email').errors?.valid">
+                            Por favor ingrese un email válido.
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-row-1">
+                <div class="form-group col-md-4">
+                    <label for="inputAddress col-form-label">Ciudad</label>
+                    <input type="text" class="form-control" id="inputAddress" formControlName="city"
+                        placeholder="Ciudad" [disabled]="!socialUser"
+                        [ngClass]="{'is-invalid': (userForm.get('city').touched || userForm.get('city').dirty) && !userForm.get('city').valid}">
+                    <span class="invalid-feedback">
+                        <span *ngIf="userForm.get('city').errors?.required">
+                            Por favor ingrese una ciudad.
+                        </span>
+                    </span>
+                </div>
+
+                <div formGroupName="passwordGroup">
+                    <div class="form-group col-md-4">
+                        <label>Ingrese su contraseña</label>
+                        <input type="password" class="form-control" formControlName="password"
+                            [ngClass]="{'is-invalid': passwordMessage}">
+                        <span class="invalid-feedback">
+                            {{ passwordMessage }}
+                        </span>
+                        <span *ngIf="userForm.get('passwordGroup.password').errors?.range">
+                            La contraseña debe ser mayor a 6 caracteres.
+                        </span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Confirmar contraseña</label>
+
+                        <input type="password" class="form-control" formControlName="confirmPassword"
+                            [ngClass]="{'is-invalid': userForm.get('passwordGroup').errors || ((userForm.get('passwordGroup.confirmPassword').touched || userForm.get('passwordGroup.confirmPassword').dirty) && !userForm.get('passwordGroup.confirmPassword').valid) }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="userForm.get('passwordGroup.confirmPassword').errors?.required">
+                                Por favor confirme su contraseña.
+                            </span>
+                            <span *ngIf="userForm.get('passwordGroup').errors?.match">
+                                Las contraseñas no coinciden.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isDoctor">
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label for="inputAddress2">Especialización</label>
+                        <input type="text" class="form-control" id="inputAddress2" formControlName="specialization"
+                            placeholder="Medicina funcional">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputAddress2">Experiencia(Años)</label>
+                        <input type="text" class="form-control" id="inputAddress2" formControlName="experience"
+                            placeholder="2" size="1065666">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="inputCity">Universidad</label>
+                        <input type="text" class="form-control" id="Universidad" formControlName="university"
+                            placeholder="UdeA">
+                    </div>
+                </div>
+                <div class=" align-items-center">
+                    <div class="form-row-1">
+                        <div class="form-group col-md-6">
+                            <label for="inputZip">EPS</label>
+                            <input type="text" class="form-control" id="554AS58" formControlName="eps">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputZip">Código pin</label>
+                            <input type="text" class="form-control" id="554AS58" formControlName="pin">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-row-10">
+                <div class="button col-xs-12">
+                    <button class="btn btn-light new"
+                        [title]="userForm.valid ? 'Registrate!' : 'Por favor ingresa todos tus datos'"
+                        [disabled]="!userForm.valid" routerLinkActive="router-link-active">
+                        Registrar<i class="fas fa-plus-circle fa-1x" style="color: blue"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>
+
+<hr style="border-top: 1px solid #eee;">

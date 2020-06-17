@@ -1,0 +1,19 @@
+<div style="text-align: center;">
+    <form>
+        <mat-card-title >Qué tipo de usuario desea crear?</mat-card-title>
+        <mat-form-field style="margin-top: 10%;">
+            <mat-label>Tipo de usuario</mat-label>
+            <mat-select [(value)]="selected">
+              <mat-option (onSelectionChange)="onChange($event)" *ngFor="let type of types" [value]="type.value">
+                {{type.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </form>
+    <div >
+        
+      <button class="btn btn-light new"  [disabled]="buttonDisabled"  (click)="save(selected)" routerLinkActive="router-link-active">
+   Continuar<i class="fas fa-plus-circle fa-1x" style="color: green"></i>
+  </button>
+    </div>
+</div>

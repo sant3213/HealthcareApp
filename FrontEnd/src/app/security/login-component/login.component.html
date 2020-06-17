@@ -1,0 +1,36 @@
+<div class="login-card">
+  <mat-card class="mat-card-login">
+    <div style="display: inline;">
+    <form [formGroup]="loginForm">
+      <div class="form-group" >
+        <input type="email" class="form-control" formControlName="email" placeholder="Ingrese el correo"  [ngClass]="{'is-invalid': emailMessage }"  >
+        <span class="invalid-feedback">
+        {{ emailMessage }}
+              </span>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" >
+      </div>
+    </form>
+<div class="buttons">
+    <div class="button-center col">
+      <button class="btn btn-light new" routerLinkActive="router-link-active" [disabled]="!loginForm.valid" (click)="login()">
+        Iniciar sesión<i class="fas fa-plus-circle fa-1x" style="color: green"></i>
+      </button>
+    </div>
+    <button type="button" class="btn btn-link px-0">Olvidaste la contraseña?</button>
+
+    <div class="button-center col">
+      <button (click)="socialSignIn('google')" class="loginBtn loginBtn--google">
+        Logueate con Google
+      </button>
+      <button (click)="socialSignIn('facebook')" class="loginBtn loginBtn--facebook">Logueate con Facebook</button>
+    </div>
+    <button type="button" class="btn btn-link px-0" (click)="createNewUser()">Regístrate aquí!</button>
+  </div>
+</div>
+  </mat-card>
+</div>
+
+<hr style="border-top: 1px solid #eee;">
+

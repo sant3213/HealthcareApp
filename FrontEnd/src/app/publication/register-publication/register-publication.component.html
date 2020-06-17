@@ -1,0 +1,48 @@
+<div class="register-card">
+    <mat-card class="mat-card-register">
+      <form (ngSubmit)="register(userForm)" [formGroup]="userForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputName">Título</label>
+              <input type="text" formControlName="title" class="form-control"  placeholder="Título"
+              [ngClass]="{'is-invalid': (userForm.get('title').touched || userForm.get('title').dirty) && !userForm.get('title').valid}">
+              <span class="invalid-feedback">
+              <span *ngIf="userForm.get('title').errors?.required">
+                Por favor ingrese un titulo
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputName">Descripción</label>
+              <input type="text" formControlName="text" class="form-control"  placeholder="Descripción"
+              [ngClass]="{'is-invalid': (userForm.get('text').touched || userForm.get('text').dirty) && !userForm.get('text').valid}">
+              <span class="invalid-feedback">
+                <span *ngIf="userForm.get('text').errors?.required">
+                  Por favor ingrese una descripción
+                  </span>
+                </span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputName">Especialización</label>
+              <input type="text" formControlName="specialization" class="form-control"  placeholder="Especialización"
+              [ngClass]="{'is-invalid': (userForm.get('specialization').touched || userForm.get('specialization').dirty) && !userForm.get('specialization').valid}">
+              <span class="invalid-feedback">
+                <span *ngIf="userForm.get('specialization').errors?.required">
+                  Por favor ingrese una especialización
+                  </span>
+                </span>
+            </div>
+          </div>
+          <div class="button-center col">
+            <button class="btn btn-light new" [title]="userForm.valid ? 'Registrate!' : 'Por favor ingresa todos tus datos'" [disabled]="!userForm.valid" routerLinkActive="router-link-active">
+              Crear<i class="fas fa-plus-circle fa-1x" style="color: blue"></i>
+            </button>      
+          </div>
+        </form>
+    </mat-card>
+</div>
+<hr style="border-top: 1px solid #eee;">

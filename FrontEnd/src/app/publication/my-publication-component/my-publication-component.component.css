@@ -1,0 +1,33 @@
+.publication-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  margin-bottom: 3%;  
+  }
+
+.mat-card-publication{
+    text-align: center;
+    height: 65%;
+    border-radius: 25px;
+}
+
+.mat-form-field-wrapper{
+    margin-left: 10%;
+}
+
+.mat-tab-body-content{
+  width:100%;
+}
+
+.example-tab-icon {
+  margin-right: 8px;
+}
+
+::ng-deep .mat-tab-body-content { 
+  overflow-x: hidden !important;
+}
+
+.mat-accordion{
+  width: 80%;
+}
