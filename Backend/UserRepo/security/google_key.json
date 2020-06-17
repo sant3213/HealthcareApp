@@ -1,0 +1,15 @@
+{
+        "client_id": "419168859251-8vmvquvuqpbejj9ai73t0jhqrrl0agef.apps.googleusercontent.com",
+        "project_id": "healthproject-272216",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_secret": "IId83IbRyuQL4CiBnf3Utily",
+        "redirect_uris": [
+            "http://localhost:4200/auth/google/callback"
+        ],
+        "javascript_origins": [
+            "http://localhost:3001"
+        ]
+    
+}
